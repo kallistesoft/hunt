@@ -11,6 +11,6 @@ for f in "$ROOT"/content/samples/*.json "$ROOT"/content/questions/*.json; do
   [ -f "$f" ] && cp "$f" "$DEST/questions/"
 done
 # Photo ID bank, built from content/wildlife-id (keeps app/assets/wildlife in step).
-PY="$ROOT/.venv/bin/python"; [ -x "$PY" ] || PY=python3
+PY="$ROOT/.venv/bin/python"; [ -x "$PY" ] || PY="${PYTHON:-python3}"
 "$PY" "$ROOT/tools/wildlife_id.py" build
 ls "$DEST/questions"
